@@ -25,9 +25,9 @@ Summary:	libqtxdg - header files and development documentation
 Summary(pl.UTF-8):	libqtxdg - pliki nagłówkowe i dokumentacja do kdelibs
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	QtCore >= %{qtver}
-Requires:	QtGui >= %{qtver}
-Requires:	QtXml >= %{qtver}
+Requires:	QtCore-devel >= %{qtver}
+Requires:	QtGui-devel >= %{qtver}
+Requires:	QtXml-devel >= %{qtver}
 Obsoletes:	razor-qt-devel
 
 %description devel
