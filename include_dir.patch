@@ -1,0 +1,11 @@
+--- libqtxdg-1.1.0/CMakeLists.txt.orig	2015-03-11 22:49:12.244265879 +0100
++++ libqtxdg-1.1.0/CMakeLists.txt	2015-03-11 22:50:22.263886550 +0100
+@@ -225,7 +225,7 @@ configure_file(
+ )
+ 
+ # Instalable ...............................
+-set(QTXDG_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR}/${QTXDGX_FILE_NAME})
++set(QTXDG_INCLUDE_DIR ${CMAKE_INSTALL_INCLUDEDIR}/${QTXDGX_FILE_NAME})
+ 
+ configure_file(
+     ${CMAKE_CURRENT_SOURCE_DIR}/cmake/qtxdg-config.cmake.in

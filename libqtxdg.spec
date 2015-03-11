@@ -3,11 +3,12 @@
 Summary:	libqtxdg
 Name:		libqtxdg
 Version:	1.1.0
-Release:	1
+Release:	2
 License:	GPLv2 and LGPL-2.1+
 Group:		X11/Libraries
 Source0:	http://downloads.lxqt.org/libqtxdg/%{version}/%{name}-%{version}.tar.xz
 # Source0-md5:	17f43c91a72b44804dd519246be6e03a
+Patch0:		include_dir.patch
 URL:		http://www.lxqt.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -42,6 +43,7 @@ pisaniu własnych programów wykorzystujących libqtxdg.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 install -d build
