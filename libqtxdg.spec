@@ -10,10 +10,13 @@ Source0:	http://downloads.lxqt.org/libqtxdg/%{version}/%{name}-%{version}.tar.xz
 # Source0-md5:	47b311531c1864dd1296515b9658b87a
 URL:		http://www.lxqt.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5DBus-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
+BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	Qt5Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.3
 BuildRequires:	libmagic-devel
+BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	xz-devel
 Obsoletes:	razor-qt
