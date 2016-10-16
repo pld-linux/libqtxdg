@@ -2,12 +2,12 @@
 
 Summary:	libqtxdg
 Name:		libqtxdg
-Version:	1.3.0
+Version:	2.0.0
 Release:	1
 License:	GPLv2 and LGPL-2.1+
 Group:		X11/Libraries
 Source0:	http://downloads.lxqt.org/libqtxdg/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	47b311531c1864dd1296515b9658b87a
+# Source0-md5:	a5683d77db13c6e86b6b578050c6f435
 URL:		http://www.lxqt.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -50,8 +50,8 @@ pisaniu własnych programów wykorzystujących libqtxdg.
 install -d build
 cd build
 %cmake \
-    -DUSE_QT5=ON \
-    ../
+	-DUSE_QT5=ON \
+	../
 
 %{__make}
 
@@ -69,12 +69,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libQt5Xdg.so.*.*.*
-%ghost %{_libdir}/libQt5Xdg.so.1
+%attr(755,root,root) %{_libdir}/libQt5Xdg.so.2.*.*
+%ghost %{_libdir}/libQt5Xdg.so.2
+%attr(755,root,root) %{_libdir}/libQt5XdgIconLoader.so.2.*.*
+%ghost %{_libdir}/libQt5XdgIconLoader.so.2
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/qt5xdg
+%{_includedir}/qt5xdgiconloader
 %attr(755,root,root) %{_libdir}/libQt5Xdg.so
+%attr(755,root,root) %{_libdir}/libQt5XdgIconLoader.so
 %{_datadir}/cmake/qt5xdg
+%{_datadir}/cmake/qt5xdgiconloader
 %{_pkgconfigdir}/Qt5Xdg.pc
+%{_pkgconfigdir}/Qt5XdgIconLoader.pc
