@@ -1,38 +1,46 @@
-%define		qtver		5.3.1
+%define		qtver		6.6.0
 
-Summary:	libqtxdg
+Summary:	QtXdg, a Qt6 implementation of XDG standards
+Summary(pl.UTF-8):	QtXdg, implementacja standardów XDG w Qt6
 Name:		libqtxdg
-Version:	2.0.0
+Version:	4.3.0
 Release:	1
 License:	GPLv2 and LGPL-2.1+
 Group:		X11/Libraries
-Source0:	http://downloads.lxqt.org/libqtxdg/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	a5683d77db13c6e86b6b578050c6f435
+Source0:	https://github.com/lxqt/libqtxdg/releases/download/%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	dd6d86167ea86213d00dd82ec7ac88bb
 URL:		http://www.lxqt.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5DBus-devel >= %{qtver}
-BuildRequires:	Qt5Gui-devel >= %{qtver}
-BuildRequires:	Qt5Widgets-devel >= %{qtver}
-BuildRequires:	Qt5Xml-devel >= %{qtver}
-BuildRequires:	cmake >= 2.8.3
-BuildRequires:	libmagic-devel
-BuildRequires:	qt5-build >= %{qtver}
-BuildRequires:	qt5-linguist >= %{qtver}
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6DBus-devel >= %{qtver}
+BuildRequires:	Qt6Gui-devel >= %{qtver}
+BuildRequires:	Qt6Svg-devel >= %{qtver}
+BuildRequires:	Qt6Widgets-devel >= %{qtver}
+BuildRequires:	Qt6Xml-devel >= %{qtver}
+BuildRequires:	cmake >= 3.18.0
+BuildRequires:	glib2-devel >= 1:2.41.0
+BuildRequires:	lxqt-build-tools >= 2.3.0
+BuildRequires:	xterm
 BuildRequires:	xz-devel
 Obsoletes:	razor-qt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-libqtxdg.
+QtXdg, a Qt6 implementation of XDG standards.
+
+%description -l pl.UTF-8
+QtXdg, implementacja standardów XDG w Qt6
 
 %package devel
 Summary:	libqtxdg - header files and development documentation
-Summary(pl.UTF-8):	libqtxdg - pliki nagłówkowe i dokumentacja do kdelibs
+Summary(pl.UTF-8):	libqtxdg - pliki nagłówkowe i dokumentacja
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	Qt5Core-devel >= %{qtver}
-Requires:	Qt5Gui-devel >= %{qtver}
-Requires:	Qt5Xml-devel >= %{qtver}
+Requires:	Qt6Core-devel >= %{qtver}
+Requires:	Qt6DBus-devel >= %{qtver}
+Requires:	Qt6Gui-devel >= %{qtver}
+Requires:	Qt6Svg-devel >= %{qtver}
+Requires:	Qt6Widgets-devel >= %{qtver}
+Requires:	Qt6Xml-devel >= %{qtver}
 Obsoletes:	razor-qt-devel
 
 %description devel
@@ -47,13 +55,9 @@ pisaniu własnych programów wykorzystujących libqtxdg.
 %setup -q
 
 %build
-install -d build
-cd build
-%cmake \
-	-DUSE_QT5=ON \
-	../
+%cmake -B build
 
-%{__make}
+%{__make} -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -69,18 +73,21 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libQt5Xdg.so.2.*.*
-%ghost %{_libdir}/libQt5Xdg.so.2
-%attr(755,root,root) %{_libdir}/libQt5XdgIconLoader.so.2.*.*
-%ghost %{_libdir}/libQt5XdgIconLoader.so.2
+/etc/xdg/lxqt-qtxdg.conf
+/etc/xdg/qtxdg.conf
+%{_libdir}/libQt6Xdg.so.4.*.*
+%ghost %{_libdir}/libQt6Xdg.so.4
+%{_libdir}/libQt6XdgIconLoader.so.4.*.*
+%ghost %{_libdir}/libQt6XdgIconLoader.so.4
+%{_libdir}/qt6/plugins/iconengines/libQt6XdgIconPlugin.so
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/qt5xdg
-%{_includedir}/qt5xdgiconloader
-%attr(755,root,root) %{_libdir}/libQt5Xdg.so
-%attr(755,root,root) %{_libdir}/libQt5XdgIconLoader.so
-%{_datadir}/cmake/qt5xdg
-%{_datadir}/cmake/qt5xdgiconloader
-%{_pkgconfigdir}/Qt5Xdg.pc
-%{_pkgconfigdir}/Qt5XdgIconLoader.pc
+%{_includedir}/qt6xdg
+%{_includedir}/qt6xdgiconloader
+%{_libdir}/libQt6Xdg.so
+%{_libdir}/libQt6XdgIconLoader.so
+%{_datadir}/cmake/qt6xdg
+%{_datadir}/cmake/qt6xdgiconloader
+%{_pkgconfigdir}/Qt6Xdg.pc
+%{_pkgconfigdir}/Qt6XdgIconLoader.pc
