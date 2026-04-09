@@ -4,7 +4,7 @@ Summary:	QtXdg, a Qt6 implementation of XDG standards
 Summary(pl.UTF-8):	QtXdg, implementacja standardów XDG w Qt6
 Name:		libqtxdg
 Version:	4.3.0
-Release:	3
+Release:	4
 License:	GPLv2 and LGPL-2.1+
 Group:		X11/Libraries
 Source0:	https://github.com/lxqt/libqtxdg/releases/download/%{version}/%{name}-%{version}.tar.xz
