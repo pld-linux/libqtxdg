@@ -3,12 +3,12 @@
 Summary:	QtXdg, a Qt6 implementation of XDG standards
 Summary(pl.UTF-8):	QtXdg, implementacja standardów XDG w Qt6
 Name:		libqtxdg
-Version:	4.3.0
-Release:	4
+Version:	4.4.0
+Release:	1
 License:	GPLv2 and LGPL-2.1+
 Group:		X11/Libraries
 Source0:	https://github.com/lxqt/libqtxdg/releases/download/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	dd6d86167ea86213d00dd82ec7ac88bb
+# Source0-md5:	ea81dc21611085a6601defb3fe6cce89
 URL:		http://www.lxqt.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -18,7 +18,7 @@ BuildRequires:	Qt6Widgets-devel >= %{qtver}
 BuildRequires:	Qt6Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 3.18.0
 BuildRequires:	glib2-devel >= 1:2.41.0
-BuildRequires:	lxqt-build-tools >= 2.3.0
+BuildRequires:	lxqt-build-tools >= 2.4.0
 BuildRequires:	xterm
 BuildRequires:	xz-devel
 Obsoletes:	razor-qt
